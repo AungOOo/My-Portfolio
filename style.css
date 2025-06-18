@@ -620,3 +620,71 @@ footer span a:hover {
     font-size: 23px;
     padding:10px 30px;
 }
+
+
+
+/* changes start from here */
+
+.timeline-section {
+    padding-top: 50px;
+    margin-top: 50px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+.timeline-title {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 40px;
+    color: rgb(209, 29, 65);
+    font-family: 'Cormorant Garamond', serif;
+}
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-left: 20px;
+    border-left: 2px solid rgb(209, 29, 65);
+}
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+.timeline-dot {
+    position: absolute;
+    left: -11px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(209, 29, 65);
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+.timeline-date {
+    color: #ccc;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+.timeline-content {
+    background-color: #333;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.timeline-content h4 {
+    margin: 0 0 5px 0;
+    font-size: 20px;
+    color: rgb(209, 29, 65);
+}
+.timeline-content p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+@media (max-width: 600px) {
+    .timeline {
+        padding-left: 15px;
+    }
+    .timeline-content {
+        font-size: 15px;
+    }
+}

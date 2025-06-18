@@ -98,8 +98,6 @@ html{
     filter: brightness(90%);
 }
 
-
-
 /* responsive media query start */
 @media (max-width: 1300px) {
     .home .max-width {
@@ -229,8 +227,6 @@ html{
 }
 
 
-
-
 /* home section styling*/
 .home {
     display: flex;
@@ -260,10 +256,6 @@ html{
     color: rgb(209, 29, 65);
     font-weight: 500;
 }
-
-
-
-
 
 /* about section styling */
 section {
@@ -350,10 +342,6 @@ section {
     background: none;
 }
 
-
-
-
-
 /* projects section styling */
 .projects {
     color: #fff;
@@ -421,17 +409,6 @@ section {
 .projects .proj-content .card:hover .box{
     transform: scale(1.10);
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /* contact section styling */
 .contact {
@@ -605,9 +582,6 @@ section {
     background: none;
 }
 
-
-
-
 /* footer section styling */
 footer {
     background:rgb(54, 49, 49);
@@ -623,7 +597,6 @@ footer span a {
 footer span a:hover {
     text-decoration: underline;
 }
-
 
 /* button design */
 .home .home-content a{

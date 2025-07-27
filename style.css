@@ -269,6 +269,12 @@ section {
     background: var(--medium-gray);
     transform: translateX(-50%);
 }
+/* --- FIX: Added clearfix to the timeline container --- */
+.timeline-content::after {
+    content: "";
+    display: table;
+    clear: both;
+}
 .timeline-item {
     position: relative;
     width: 50%;

@@ -284,8 +284,17 @@ section {
     transform: translateY(50px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-.timeline-item:nth-child(odd) { left: 0; }
-.timeline-item:nth-child(even) { left: 50%; }
+/* --- FIX: Changed positioning from 'left' to 'float' for stability --- */
+.timeline-item:nth-child(odd) {
+    float: left;
+    clear: both;
+    text-align: right;
+}
+.timeline-item:nth-child(even) {
+    float: right;
+    clear: both;
+    text-align: left;
+}
 .timeline-item.is-visible {
     opacity: 1;
     transform: translateY(0);
@@ -314,8 +323,14 @@ section {
     font-weight: 600;
     color: var(--primary-green);
 }
-.timeline-item:nth-child(odd) .timeline-date { right: 60px; }
-.timeline-item:nth-child(even) .timeline-date { left: 60px; }
+.timeline-item:nth-child(odd) .timeline-date {
+    left: auto;
+    right: 60px;
+}
+.timeline-item:nth-child(even) .timeline-date {
+    right: auto;
+    left: 60px;
+}
 .timeline-card {
     background: var(--white);
     padding: 20px;
@@ -542,7 +557,16 @@ footer span a:hover { text-decoration: underline; }
         margin-bottom: 35px;
     }
     .timeline-content::before { left: 20px; }
-    .timeline-item { width: 100%; padding-left: 70px; padding-right: 20px; }
+    .timeline-item,
+    .timeline-item:nth-child(even),
+    .timeline-item:nth-child(odd) {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 20px;
+        float: none;
+        clear: both;
+        text-align: left;
+    }
     .timeline-item:nth-child(even) { left: 0%; }
     .timeline-item:nth-child(odd) .timeline-dot,
     .timeline-item:nth-child(even) .timeline-dot {
@@ -550,7 +574,10 @@ footer span a:hover { text-decoration: underline; }
         transform: translate(-50%, -50%);
     }
     .timeline-item:nth-child(odd) .timeline-date,
-    .timeline-item:nth-child(even) .timeline-date { left: 70px; }
+    .timeline-item:nth-child(even) .timeline-date {
+        left: 70px;
+        right: auto;
+    }
 }
 @media (max-width: 690px) {
     .max-width { padding: 0 23px; }

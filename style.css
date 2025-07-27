@@ -2,19 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
 
 :root {
-    --primary-green: #2e7d32;
-    --light-green: #4CAF50;
-    --dark-green: #1B5E20;
-    --yellow: #FFD600;
+    --primary-color: crimson;
+    --dark-color: #111;
+    --light-dark-color: #222;
     --white: #ffffff;
     --light-gray: #f8f9fa;
-    --medium-gray: #e0e0e0;
+    --medium-gray: #ccc;
     --dark-gray: #333333;
     --text: #333333;
     --bg: #ffffff; 
     --card-bg: #ffffff;
-    --header-bg: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
-    --footer-bg: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
     --shadow: 0 8px 25px rgba(0,0,0,0.08);
     --border-color: rgba(0, 0, 0, 0.1);
 }
@@ -53,7 +50,7 @@ body {
 
 .navbar.sticky {
     padding: 15px 0;
-    background: var(--header-bg);
+    background: var(--primary-color);
     box-shadow: var(--shadow);
 }
 
@@ -64,13 +61,13 @@ body {
 }
 
 .navbar .logo a {
-    color: var(--dark-green);
+    color: var(--dark-color);
     font-size: 45px;
     font-weight: 700;
 }
 
 .navbar .logo a span {
-    color: var(--primary-green);
+    color: var(--primary-color);
     transition: all 0.3s ease;
 }
 
@@ -97,11 +94,11 @@ body {
 }
 
 .navbar .menu li a:hover {
-    color: var(--primary-green);
+    color: var(--primary-color);
 }
 
 .navbar.sticky .menu li a:hover {
-    color: var(--yellow);
+    color: var(--dark-color);
 }
 
 /* Menu Button */
@@ -161,7 +158,7 @@ body {
 }
 .home .home-content .text-3 { font-size: 40px; margin: 5px 0; }
 .home .home-content .text-3 span {
-    color: var(--yellow);
+    color: var(--primary-color);
     font-weight: 600;
 }
 
@@ -179,7 +176,7 @@ section {
     font-weight: 600;
     margin-bottom: 60px;
     padding-bottom: 20px;
-    color: var(--primary-green);
+    color: var(--dark-color);
 }
 
 .title::before {
@@ -188,10 +185,9 @@ section {
     bottom: 0px;
     left: 50%;
     width: 180px;
-    height: 4px;
-    background: var(--yellow);
+    height: 3px;
+    background: var(--dark-color);
     transform: translateX(-50%);
-    border-radius: 2px;
 }
 
 .title::after {
@@ -200,7 +196,7 @@ section {
     bottom: -15px;
     left: 50%;
     padding: 5px;
-    color: var(--primary-green);
+    color: var(--primary-color);
     background: inherit; /* Inherit background from parent section */
     transform: translateX(-50%);
 }
@@ -231,34 +227,32 @@ section {
     font-weight: 600;
     margin-bottom: 10px;
 }
-.about .about-content .right .text span { color: var(--primary-green); }
+.about .about-content .right .text span { color: var(--primary-color); }
 .about .about-content .right p { text-align: justify; line-height: 1.7; }
 .about .about-content .right a {
     display: inline-block;
-    background: var(--primary-green);
+    background: var(--primary-color);
     color: var(--white);
     font-size: 18px;
     font-weight: 500;
     padding: 12px 30px;
     margin-top: 20px;
-    border-radius: 50px;
-    border: 2px solid var(--primary-green);
+    border-radius: 6px;
+    border: 2px solid var(--primary-color);
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 .about .about-content .right a:hover {
-    background: var(--dark-green);
-    transform: translateY(-3px);
+    color: var(--primary-color);
+    background: none;
 }
 
 /* Timeline Section */
-.timeline { background: var(--light-gray); }
+.timeline { background: var(--white); }
 .timeline .title::after { content: "My Legal Journey"; }
 .timeline-content {
     position: relative;
     margin-top: 30px;
 }
-/* The central line */
 .timeline-content::before {
     content: '';
     position: absolute;
@@ -269,7 +263,6 @@ section {
     background: var(--medium-gray);
     transform: translateX(-50%);
 }
-/* --- FIX: Added clearfix to the timeline container --- */
 .timeline-content::after {
     content: "";
     display: table;
@@ -280,11 +273,10 @@ section {
     width: 50%;
     padding: 10px 40px;
     margin-bottom: 40px;
-    opacity: 0; /* Hidden by default for animation */
+    opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-/* --- FIX: Changed positioning from 'left' to 'float' for stability --- */
 .timeline-item:nth-child(odd) {
     float: left;
     clear: both;
@@ -304,7 +296,7 @@ section {
     width: 20px;
     height: 20px;
     background: var(--white);
-    border: 4px solid var(--primary-green);
+    border: 4px solid var(--primary-color);
     border-radius: 50%;
     top: 20px;
     z-index: 1;
@@ -321,7 +313,7 @@ section {
     position: absolute;
     top: 5px;
     font-weight: 600;
-    color: var(--primary-green);
+    color: var(--primary-color);
 }
 .timeline-item:nth-child(odd) .timeline-date {
     left: auto;
@@ -337,12 +329,14 @@ section {
     border-radius: 8px;
     box-shadow: var(--shadow);
 }
-.timeline-card h3 { color: var(--dark-green); margin-bottom: 5px; }
+.timeline-card h3 { color: var(--primary-color); margin-bottom: 5px; }
 
 
 /* Projects Section */
-.projects { background: var(--white); }
-.projects .title::after { content: "What I've Built"; }
+.projects { background: var(--dark-color); color: var(--white); }
+.projects .title { color: var(--white); }
+.projects .title::before { background: var(--white); }
+.projects .title::after { content: "What I've Built"; background: var(--dark-color); }
 
 .projects .proj-content {
     display: grid;
@@ -355,16 +349,15 @@ section {
     display: block;
 }
 .projects .card {
-    background: var(--card-bg);
+    background: var(--light-dark-color);
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: var(--shadow);
     transition: all 0.4s ease;
-    border: 1px solid var(--border-color);
+    border: 1px solid #444;
 }
 .projects .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
 }
 .projects .card-image img {
     width: 100%;
@@ -378,11 +371,12 @@ section {
     font-size: 1.5rem;
     font-weight: 600;
     margin: 0 0 10px 0;
-    color: var(--primary-green);
+    color: var(--white);
 }
 .projects .card p {
     line-height: 1.6;
     margin-bottom: 15px;
+    color: #eee;
 }
 .projects .languages {
     display: flex;
@@ -390,8 +384,8 @@ section {
     gap: 8px;
 }
 .projects .lang-tag {
-    background: var(--light-gray);
-    color: var(--dark-green);
+    background: #333;
+    color: #eee;
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 0.8rem;
@@ -400,7 +394,7 @@ section {
 
 
 /* Contact Section */
-.contact { background: var(--light-gray); } /* Changed background */
+.contact { background: var(--light-gray); }
 .contact .title::after { content: "Get In Touch"; }
 
 .contact .contact-content {
@@ -415,7 +409,7 @@ section {
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 10px;
-    color: var(--primary-green);
+    color: var(--dark-color);
 }
 
 .contact .contact-content .left .icons { margin: 10px 0; }
@@ -426,7 +420,7 @@ section {
 }
 .contact .contact-content .row i {
     font-size: 25px;
-    color: var(--primary-green);
+    color: var(--primary-color);
 }
 .contact .contact-content .row .info { margin-left: 30px; }
 .contact .contact-content .info .head { font-weight: 600; }
@@ -444,7 +438,7 @@ section {
     height: 100%;
     width: 100%;
     border: 1px solid var(--medium-gray);
-    border-radius: 10px;
+    border-radius: 6px;
     outline: none;
     padding: 15px;
     font-size: 16px;
@@ -453,7 +447,7 @@ section {
 }
 .contact .right form .field input:focus,
 .contact .right form .textarea textarea:focus {
-    border-color: var(--primary-green);
+    border-color: var(--primary-color);
 }
 .contact .right form .textarea textarea { padding-top: 10px; resize: vertical; }
 .right form .button-area button {
@@ -464,23 +458,26 @@ section {
     outline: none;
     font-size: 18px;
     font-weight: 500;
-    border-radius: 50px;
+    border-radius: 6px;
     cursor: pointer;
-    border: none;
-    background: var(--primary-green);
+    border: 2px solid var(--primary-color);
+    background: var(--primary-color);
     transition: all 0.3s ease;
 }
-.right form .button-area button:hover { background: var(--dark-green); }
+.right form .button-area button:hover { 
+    color: var(--primary-color);
+    background: none;
+}
 
 /* Footer */
 footer {
-    background: var(--footer-bg);
+    background: var(--dark-color);
     padding: 20px 23px;
     color: var(--white);
     text-align: center;
 }
 footer span a {
-    color: var(--yellow);
+    color: var(--primary-color);
     text-decoration: none;
 }
 footer span a:hover { text-decoration: underline; }
@@ -490,7 +487,7 @@ footer span a:hover { text-decoration: underline; }
     position: fixed;
     height: 45px;
     width: 45px;
-    background: var(--primary-green);
+    background: var(--primary-color);
     right: 30px;
     bottom: 30px;
     text-align: center;
@@ -498,15 +495,14 @@ footer span a:hover { text-decoration: underline; }
     color: #fff;
     z-index: 9999;
     font-size: 25px;
-    border-radius: 50%;
+    border-radius: 6px;
     cursor: pointer;
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 .scroll-up-btn.show { opacity: 1; pointer-events: auto; }
-.scroll-up-btn:hover { background: var(--dark-green); }
+.scroll-up-btn:hover { filter: brightness(90%); }
 
 /* Responsive Media Queries */
 @media (max-width: 1104px) {
@@ -551,7 +547,7 @@ footer span a:hover { text-decoration: underline; }
         color: var(--white);
     }
     .navbar.sticky .menu li a { color: var(--white); }
-    .navbar.sticky .menu li a:hover { color: var(--yellow); }
+    .navbar.sticky .menu li a:hover { color: var(--primary-color); }
     .contact .contact-content .column {
         width: 100%;
         margin-bottom: 35px;
@@ -601,7 +597,7 @@ footer span a:hover { text-decoration: underline; }
 }
 .project-detail-header h1 {
     font-size: 3rem;
-    color: var(--primary-green);
+    color: var(--dark-color);
     text-align: center;
 }
 .project-detail-header p {
@@ -621,7 +617,7 @@ footer span a:hover { text-decoration: underline; }
 .back-link {
     display: inline-block;
     margin-top: 30px;
-    color: var(--primary-green);
+    color: var(--primary-color);
     font-weight: 600;
     text-decoration: none;
 }

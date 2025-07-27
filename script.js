@@ -1,10 +1,12 @@
 $(document).ready(function(){
     $(window).scroll(function(){
+        // sticky navbar on scroll script
         if(this.scrollY > 20){
             $('.navbar').addClass("sticky");
         }else{
             $('.navbar').removeClass("sticky");
         }
+        // scroll-up button show/hide script
         if(this.scrollY > 500) {
             $('.scroll-up-btn').addClass("show");
         } else {
@@ -30,21 +32,29 @@ $(document).ready(function(){
         $('.menu-btn i').toggleClass("active");
     });
 
-    // --- NEW: Timeline Animation on Scroll ---
-    const timelineItems = document.querySelectorAll('.timeline-item');
+    // --- FIXED: Timeline Animation on Scroll using jQuery ---
+    var $timelineItems = $('.timeline-item');
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target); // Optional: stop observing once visible
+    // Function to check if an element is in viewport
+    function isElementInView(element) {
+        var elementTop = $(element).offset().top;
+        var elementBottom = elementTop + $(element).outerHeight();
+        var viewportTop = $(window).scrollTop();
+        var viewportBottom = viewportTop + $(window).height();
+        return elementBottom > viewportTop && elementTop < viewportBottom;
+    }
+
+    // Function to add 'is-visible' class to timeline items in view
+    function checkTimeline() {
+        $timelineItems.each(function() {
+            if (isElementInView(this)) {
+                $(this).addClass('is-visible');
             }
         });
-    }, {
-        threshold: 0.1 // Trigger when 10% of the item is visible
-    });
+    }
 
-    timelineItems.forEach(item => {
-        observer.observe(item);
-    });
+    // Check timeline items on scroll and on page load
+    $(window).on("scroll resize", checkTimeline);
+    checkTimeline(); // Run once on load
+
 });

@@ -259,7 +259,7 @@ html{
 
 /* about section styling */
 section {
-    padding: 50px 0;
+    padding: 40px 0;
 }
 .about {
     font-family: 'Cormorant Garamond', sans-serif;
@@ -419,7 +419,7 @@ section {
     text-align: center;
     font-size: 45px;
     font-weight: 500;
-    margin-top: 40px;
+    margin-top: 20px;
     margin-bottom: 60px;
     padding-bottom: 20px;
     font-family: 'Cormorant Garamond', sans-serif;
@@ -488,11 +488,9 @@ section {
     align-items: center;
 }
 
-
 .contact .contact-content .row .info {
     margin-left: 30px;
 }
-
 
 .contact .contact-content .row i {
     font-size: 25px;
@@ -582,7 +580,160 @@ section {
     background: none;
 }
 
-/* footer section styling */
+
+
+
+/* Timeline Section Styling | changes start from here */
+:root {
+  --accent-color: #d11d41;
+  --line-color: rgba(209, 29, 65, 0.4);
+  --bg-light: #f9f9f9;
+}
+
+/* Section spacing and title underline */
+.timeline-section {
+  padding: 40px 20px;
+  background-color: #fff;
+  position: relative;
+}
+
+.section-title {
+  font-size: 2rem;
+  text-align: center;
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--accent-color);
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+/* Timeline structure */
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 40px;
+}
+
+/* Curly background line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 30px;
+  transform: translateX(-50%);
+  background-image: url("data:image/svg+xml;utf8,<svg width='30' height='200' viewBox='0 0 30 200' xmlns='http://www.w3.org/2000/svg'><path d='M15 0 Q30 25 15 50 Q0 75 15 100 Q30 125 15 150 Q0 175 15 200' stroke='%23d11d41' fill='none' stroke-width='2' /></svg>");
+  background-repeat: repeat-y;
+  background-position: center;
+  z-index: 0;
+}
+
+/* Each item */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+}
+
+.timeline-item .timeline-marker {
+  width: 32px;
+  height: 32px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  position: absolute;
+  top: 20px;
+  z-index: 2;
+  border: 3px solid white;
+  box-shadow: 0 0 0 4px var(--line-color);
+}
+
+/* Content box */
+.timeline-content {
+    background: var(--bg-light);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: relative;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.timeline-content h3 {
+  margin-top: 0;
+  color: var(--accent-color);
+}
+
+/* When visible */
+.timeline-item.show .timeline-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Left items */
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.left .timeline-marker {
+  right: -16px;
+}
+
+.timeline-item.left .timeline-content {
+  margin-right: 50px;
+}
+
+/* Right items */
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-item.right .timeline-marker {
+  left: -16px;
+}
+
+.timeline-item.right .timeline-content {
+  margin-left: 50px;
+}
+
+/* Responsive layout (stacked) */
+@media (max-width: 768px) {
+  .timeline-item {
+    width: 100%;
+    padding: 20px 20px;
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+    text-align: left;
+  }
+
+  .timeline-item .timeline-marker {
+    left: -16px;
+    right: auto;
+  }
+
+  .timeline-item .timeline-content {
+    margin: 0 0 0 30px;
+  }
+}
+
+
+
+/* Footer section styling */
 footer {
     background:rgb(54, 49, 49);
     padding: 20px 23px;
@@ -603,7 +754,7 @@ footer span a:hover {
     display: inline-block;
     background: crimson;
     color: #fff;
-    font-size: 25px
+    font-size: 25px;
     padding: 12px 36px;
     margin-top: 20px;
     border-radius: 6px;
@@ -620,7 +771,3 @@ footer span a:hover {
     font-size: 23px;
     padding:10px 30px;
 }
-
-
-
-/* changes start from here */

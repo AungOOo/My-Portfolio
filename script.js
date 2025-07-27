@@ -1,12 +1,10 @@
 $(document).ready(function(){
     $(window).scroll(function(){
-        // sticky navbar on scroll script
         if(this.scrollY > 20){
             $('.navbar').addClass("sticky");
-        }else{
+        } else {
             $('.navbar').removeClass("sticky");
         }
-        // scroll-up button show/hide script
         if(this.scrollY > 500) {
             $('.scroll-up-btn').addClass("show");
         } else {
@@ -20,41 +18,65 @@ $(document).ready(function(){
         // removing smooth scroll on slide-up button click
         $('html').css("scrollBehavior", "auto");
     });
-
     $('.navbar .menu li a').click(function(){
         // applying again smooth scroll on menu items click
         $('html').css("scrollBehavior", "smooth");
     });
-
     // toggle menu/navbar script
     $('.menu-btn').click(function(){
         $('.navbar .menu').toggleClass("active");
         $('.menu-btn i').toggleClass("active");
     });
 
-    // --- FIXED: Timeline Animation on Scroll using jQuery ---
-    var $timelineItems = $('.timeline-item');
+    // Timeline animation code directly here (no DOMContentLoaded wrapper)
+    $(document).ready(function() {
+        // Sticky navbar and scroll-up button toggle
+        $(window).scroll(function() {
+            if (this.scrollY > 20) {
+                $('.navbar').addClass("sticky");
+            } else {
+                $('.navbar').removeClass("sticky");
+            }
 
-    // Function to check if an element is in viewport
-    function isElementInView(element) {
-        var elementTop = $(element).offset().top;
-        var elementBottom = elementTop + $(element).outerHeight();
-        var viewportTop = $(window).scrollTop();
-        var viewportBottom = viewportTop + $(window).height();
-        return elementBottom > viewportTop && elementTop < viewportBottom;
-    }
-
-    // Function to add 'is-visible' class to timeline items in view
-    function checkTimeline() {
-        $timelineItems.each(function() {
-            if (isElementInView(this)) {
-                $(this).addClass('is-visible');
+            if (this.scrollY > 500) {
+                $('.scroll-up-btn').addClass("show");
+            } else {
+                $('.scroll-up-btn').removeClass("show");
             }
         });
-    }
 
-    // Check timeline items on scroll and on page load
-    $(window).on("scroll resize", checkTimeline);
-    checkTimeline(); // Run once on load
+        // Scroll-up button click
+        $('.scroll-up-btn').click(function() {
+            $('html').animate({ scrollTop: 0 });
+            $('html').css("scrollBehavior", "auto");
+        });
+
+        // Smooth scroll on menu item click
+        $('.navbar .menu li a').click(function() {
+            $('html').css("scrollBehavior", "smooth");
+        });
+
+        // Toggle menu/navbar
+        $('.menu-btn').click(function() {
+            $('.navbar .menu').toggleClass("active");
+            $('.menu-btn i').toggleClass("active");
+        });
+
+        // Timeline scroll animation
+        $(window).on('scroll', function () {
+            $('.timeline-item').each(function () {
+                const elementTop = $(this).offset().top;
+                const scrollTop = $(window).scrollTop();
+                const windowHeight = $(window).height();
+
+                if (elementTop < scrollTop + windowHeight - 100) {
+                    $(this).addClass('show');
+                }
+            });
+        });
+
+        // Trigger once on page load
+        $(window).trigger('scroll');
+    });
 
 });

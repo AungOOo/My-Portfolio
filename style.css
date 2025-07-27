@@ -342,73 +342,90 @@ section {
     background: none;
 }
 
-/* projects section styling */
+
+/* Projects Section - MODIFIED AS REQUESTED */
 .projects {
     color: #fff;
     background: rgb(54, 49, 49);
-    font-family: 'Cormorant Garamond', sans-serif;
 }
-.projects .title {
-    position: relative;
-    text-align: center;
-    font-size: 45px;
-    font-weight: 500;
-    margin-top: 40px;
-    margin-bottom: 60px;
-    padding-bottom: 30px;
-    font-family: 'Cormorant Garamond', sans-serif;
-}
+
 .projects .title::before {
-    content: "";
-    position: absolute;
-    bottom: 0px;
-    left: 50%;
-    width: 180px;
-    height: 3px;
     background: #fff;
-    transform: translateX(-50%);
 }
+
 .projects .title::after {
     content: "What I Provide";
-    position: absolute;
-    bottom: -7px;
-    left: 50%;
-    font-size: 20px;
-    color: rgb(209, 29, 65);
-    padding: 5px;
     background: rgb(54, 49, 49);
-    transform: translateX(-50%);
 }
+
 .projects .proj-content {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: space-between;
 }
-/* 52:08 */
-.projects .proj-content .card {
+
+/* Makes the entire card a clickable link */
+.projects .card-link {
+    display: block;
     width: calc(33% - 20px);
-    background: #222;
-    text-align: center;
-    border-radius: 6px;
-    padding: 20px 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    margin-bottom: 20px; /* Add margin for spacing on smaller screens */
+    color: #fff;
 }
+
+.projects .proj-content .card {
+    background: #222;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden; /* Ensures image corners are rounded with the card */
+    height: 100%;
+}
+
+.projects .proj-content .card:hover {
+    background: crimson;
+}
+
+/* Styles for the new project image */
+.projects .proj-content .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.projects .proj-content .card .box {
+    padding: 20px 25px;
+    text-align: left; /* Align text to the left for better readability */
+}
+
 .projects .proj-content .card .text {
     font-size: 25px;
     font-weight: 500;
-    margin: 10px 0 7px 0;
+    margin: 0 0 7px 0;
 }
-.projects .proj-content .card:hover {
-    background: rgb(209, 29, 65);
+
+.projects .proj-content .card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    margin-bottom: 15px;
 }
-.projects .proj-content .card .box {
-    transition: all 0.3s ease;
+
+/* Styles for the new language tags */
+.projects .languages {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
-.projects .proj-content .card:hover .box{
-    transform: scale(1.10);
+
+.projects .languages span {
+    background: #333;
+    color: #eee;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
 }
+
 
 /* contact section styling */
 .contact {
